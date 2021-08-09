@@ -1,0 +1,798 @@
+* {
+
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Gilroy;
+    outline: none;
+
+}
+
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('Gilroy-ExtraBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url(/img/Background.png);
+    
+
+    
+}
+
+input {
+
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-size: 22px;
+
+}
+
+
+
+.container {
+
+    display: flex;
+}
+
+.first-part {
+
+    background-color: white;
+    width: 550px;
+    height: 935px;
+    box-shadow: 15px 10px 10px 10px rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+
+
+
+}
+
+#secondpart {
+
+    background-color: white;
+    width: 550px;
+    height: 935px;
+    box-shadow: 15px 10px 10px 10px rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+
+
+
+}
+
+#thirdpart {
+
+    background-color: white;
+    width: 550px;
+    height: 935px;
+    box-shadow: 15px 10px 10px 10px rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+
+
+
+}
+
+#fourthpart {
+
+    background-color: white;
+    width: 550px;
+    height: 935px;
+    box-shadow: 15px 10px 10px 10px rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+
+
+
+}
+
+#fifthpart {
+
+    background-color: white;
+    width: 550px;
+    height: 935px;
+    box-shadow: 15px 10px 10px 10px rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%);
+
+
+
+}
+
+.first-part img {
+
+    width: 160px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 0;
+
+}
+
+
+
+.loading-image img {
+
+    width: 300px;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+#secondpart img {
+
+    width: 160px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 0;
+
+}
+
+#thirdpart img {
+
+    width: 160px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 0;
+
+}
+
+#fourthpart img {
+
+    width: 160px;
+    text-align: center;
+    padding-top: 25px;
+    margin: 0;
+
+}
+
+#fifthpart img {
+
+    text-align: center;
+    padding-top: 25px;
+    margin: 0;
+
+}
+
+.logo5 {
+
+    width: 160px;
+}
+
+
+
+.li-pa, .li-pa2 {
+
+    display: none;
+}
+
+#loadingimage2 img {
+
+    width: 300px;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+
+}
+
+#loadingimage3 img {
+
+    width: 300px;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+
+.logo {
+
+    text-align: center;
+}
+
+.topo {
+
+    align-items: center;
+    text-align: center;
+}
+
+
+label {
+
+    outline: none;
+    height: 80px;
+}
+
+.etapa-1 {
+
+    width: 450px;
+    text-align: left;
+    padding: 50px 55px;
+    height: 140px;
+}
+
+.etapa-1 h5 {
+
+    font-size: 16px;
+    color: gray;
+    opacity: 80%;
+    font-weight: normal;
+}
+
+.etapa-1 h2 {
+
+    font-size: 28px;
+    font-weight: normal;
+}
+
+
+
+
+
+.dados {
+
+    width: 550px;
+    height: 500px;
+    border: none;
+    padding: 55px;
+    display: flex;
+    flex-wrap: wrap;
+    outline: none;
+    font-size: 19px;
+    
+    
+ 
+}
+
+.checkbox-input {
+
+    padding: 8px 85px;
+}
+
+.checkbox-text {
+
+    padding: 2px 55px;
+    margin-bottom: 15px;
+}
+
+.hidden{
+    display: none;
+
+}
+
+.btn-dados button {
+
+    width: 100px;
+    height: 35px;
+    float: right;
+    margin-right: 35px;
+    margin-top: 35px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    border: #8b8b8b solid;
+    border-width: 1px;
+    font-weight: 500;
+    cursor: pointer;    
+    
+}
+
+
+
+.btn-dados button:hover {
+
+    background-color: #075aa8;
+    color: white;
+}
+
+.dados #cpf, #cpfmeu {
+
+    width: 421px;
+    display: inline-block;
+    
+
+    
+}
+
+.dados #age, #agemeu {
+
+    width: 421px;
+    display: inline-block;
+
+}
+
+.dados #adress, #adressmeu {
+
+    width: 300px;
+    margin-right: 20px;
+}
+
+.dados #telefon, #telefonmeu {
+
+    width: 100px;
+}
+
+.dados #email, #cep, #bairro, #emailmeu, #bairromeu, #cepmeu {
+
+    width: 200px;
+    margin-right: 20px;
+}
+
+.dados input {
+
+    display: block;
+
+}
+
+.dados #cidade, #cidademeu {
+
+    width: 150px;
+    margin-right: 20px;
+}
+
+#cidademeu {
+
+    width: 200px;
+}
+
+#data {
+
+    width: 205px;
+    position: relative;
+    bottom: 4px;
+}
+
+
+#datepicker2, #datepicker3 {
+
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 55px;
+}
+
+.contract-text::-webkit-scrollbar {
+
+    width: 12px;
+}
+
+.estados {
+
+    width: 40px;
+    height: 38px;
+
+}
+
+#valorcliente, #valorcliente label {
+
+    width: 300px;
+    margin-left: 55px;
+    display: flex;
+}
+
+#valorcliente3 {
+
+    margin-left: 55px;
+}
+
+#valorcliente2 {
+
+    margin-left: 55px;
+}
+
+#valorcliente2 input {
+
+    margin-left: 0;
+}
+
+select::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+
+select::-webkit-scrollbar-button:start:decrement,
+select::-webkit-scrollbar-button:end:increment  {
+	display: none;
+}
+
+select::-webkit-scrollbar-track-piece  {
+	background-color: #075aa8;
+	-webkit-border-radius: 6px;
+}
+
+select::-webkit-scrollbar-thumb:vertical {
+	background-color: #666;
+	-webkit-border-radius: 6px;
+}
+
+.email-marketing, .inbound-marketing, .anuncio-marketing, .blog-marketing, .instagram-marketing, .monitoramento-marketing, .desempenho-marketing, .facebook-marketing {
+
+    display: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 15px;
+    max-width: 880px;
+    font-weight: bold;
+    margin-left: 35px;
+    background-color: rgba(49, 143, 155, 0.192);
+
+
+}
+
+.email-marketing:hover, .inbound-marketing:hover, .anuncio-marketing:hover, .blog-marketing:hover, .instagram-marketing:hover, .monitoramento-marketing:hover, .desempenho-marketing:hover, .facebook-marketing:hover {
+
+    display: none;
+    background-color: rgba(49, 143, 155, 0.192);
+    padding: 0;
+    max-width: 880px;
+}
+
+
+
+.contract-text {
+
+    width: 950px;
+    height: 850px;
+    margin-top: 40px;
+    background-color: white;
+    margin-left: 180px;
+    overflow-y: auto;
+    margin-right: 30px;
+    border-radius: 5px;
+
+
+}
+
+.contract-text h3 {
+
+    padding: 50px 170px;
+    width: 100%;
+    font-size: 28px;
+    text-align: center;
+
+}
+
+.contract-text h5 {
+
+    font-size: 22px;
+    font-weight: normal;
+    margin-left: 62px;
+
+
+}
+
+.contract-text p {
+
+    padding: 15px 0px 0px 65px; 
+    width: 85%;
+    font-size: 19px;
+    line-height: 28px;
+
+
+}
+
+.paragraph {
+
+    padding: 14px 0px 0px 65px; 
+    width: 12%;
+    font-size: 19px;
+    line-height: 28px;
+    
+
+    
+}
+
+.paragraph2 {
+
+    padding: 16px 0px 0px 0px; 
+    width: 58%;
+    font-size: 19px;
+    line-height: 22px;
+    right: 28px;
+    position: relative;
+    
+
+    
+}
+
+.paragraph3 {
+
+    padding: 15px 0px 0px 65px; 
+    width: 100%;
+    font-size: 19px;
+    line-height: 28px;
+    position: relative;
+    bottom: 13px;
+    
+
+    
+}
+
+.divnomecliente2 {
+
+    height: 20px;
+    padding: 18px;
+    position: relative;
+    right: 19px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.paragraph-display {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contract-text ol {
+
+    padding: 15px 0px 0px 65px;
+    font-size: 18px;
+}
+
+.javadados {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.javadados div {
+
+    margin-top: 5px ;
+
+
+}
+
+.numeroclientedigitado, .numeromeudigitado {
+
+    margin-left: 70px;
+
+}
+
+#nomeclientedigitado, .divnomemeu {
+
+    margin-left: 3px;   
+}
+
+.assinaturacliente, .assinaturameu {
+
+    text-decoration: underline solid 2px;
+    padding: 0px 0px 0px 65px; 
+}
+
+.divnomemeu2, .divnomecliente3 {
+
+    padding: 0px 0px 0px 65px;
+    margin-top: 5px;
+
+
+}
+
+.moedas {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.moeda1 {
+
+    width: 40%;
+}
+
+.divmoeda {
+
+    width: 40%;
+}
+
+.cidaderodape {
+
+    padding: 0px 0px 0px 65px;
+}
+
+.estadorodape {
+
+    padding: 0 0 0 5px;
+}
+
+.date-logo {
+
+    display: flex;
+}
+
+.date-logo input {
+
+    margin-right: 5px;
+}
+
+.rodapedados {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.date-logoimg{
+
+    width: 22px;
+    height: 45px;
+    
+}
+
+#my-node {
+    background: blue;
+    width: 100px;
+    height: 100px;
+    color: #fff;
+  }
+
+.imprimirclass {
+
+    max-width: 1000px;
+    padding: 30px;
+    
+}
+
+.h3-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.h4-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.h5-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.h6-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.h7-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.h8-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 15px;
+}
+
+.h9-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.h10-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 180px;
+    margin-bottom: 15px;
+}
+
+.h11-class {
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.body-class {
+
+    max-width: 575px;
+    padding: 0;
+    margin: 0 auto !important;
+    background-color: white;
+
+}
+
+.printable-class {
+
+    background-image: none;
+    background-color: white;
+}
+
+.nome-class, .nome2-class {
+
+    width: 210px;
+    display: flex;
+    margin-right: 0;
+    font-size: 16px;
+    position: relative;
+    left: 2px;
+    
+}
+
+.cpf-class, .cpf2-class {
+
+    width: 220px;
+    font-size: 16px;
+    position: relative;
+    bottom: 1px;
+}
+
+.numero-class, .numero2-class {
+
+    margin-left: 5px;
+
+}
+
+.teste-class, .teste-class2 {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+
+}
+
+.divnome-class {
+
+    position: relative;
+    top: 18px;
+}
+
+.paragraph5 {
+
+    font-size: 19px;
+    top: 15px;
+    left: 5px;
+    position: relative;
+
+}
+
+.paragraph55 {
+
+    padding: 14px 0px 0px 30px; 
+    width: 12%;
+    font-size: 19px;
+    line-height: 28px;
+}
+
+ .paragraph66 {
+
+    padding: 15px 0px 0px 35px; 
+    width: 100%;
+    font-size: 19px;
+    line-height: 28px;
+    position: relative;
+    bottom: 10px;
+ }
+
+
+
