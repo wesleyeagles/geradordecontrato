@@ -1,1092 +1,528 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js    "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/pt-br.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
     <script src="https://html2canvas.hertzen.com/build/html2canvas.js"></script>
-    <script src="printThis.js"></script>
+    <script src="js/printThis.js"></script>
+
 
     
 
 
 
 
-    <link href="css/style.css" rel="stylesheet">
 
-  
-
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Gerador de Contratos</title>
 </head>
-<body id="body-id">
+<body>
 
-  <div class="container">
 
+    <div class="row">
 
- <div class="first-part" id="firstpart">
-   <div class="logo">
-  <img src="/img/Logo degrade_Prancheta 1.png" alt="">
-</div>
-
-
-  <div class="topo">
-  <h2>Gerador de<br>Contratos</h2>
-
-  <div class="loading-image">
-
-
-
-
-  </div>
-
-  <div class="etapa-1">
-
-  <h5>Etapa 1/5</h5>
-  <h2>Informações do cliente</h2>
-</div>
-  </div>
-
-  
-
-
-  <div class="dados">
-
-    <label for="cpf">CPF/CNPJ <input type="text" onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" id="cpf" maxlength="18" required></label>
-
-    <label for="nome">Nome/Razão Social <input type="text" id="age"></label>
-    <br>
-
-    <label for="endereço">Endereço<input type="text"  id="adress"></label>
-    <br>
-
-    <label for="numero"> Número<input type="tel" id="telefon" maxlength="5"></label>
-    <br>
-
-    <label for="cep">CEP<input type="email" onKeyPress="MascaraGenerica(this, 'CEP');" maxlength="10" id="cep"></label>
-    <br>
-
-    <label for="bairro">Bairro<input type="email" id="bairro"></label>
-    <br>
-
-    <label for="cidade">Cidade<input type="text" id="cidade"></label>
-
-
-
-    <br>
-
-    <select class="estados" name="Estado" id="estadocliente">
-      <option value="AC">AC</option>
-      <option value="AL">AL</option>
-      <option value="AP">AP</option>
-      <option value="AM">AM</option>
-      <option value="BA">BA</option>
-      <option value="CE">CE</option>
-      <option value="ES">ES</option>
-      <option value="GO">GO</option>
-      <option value="MA">MA</option>
-      <option value="MT">MT</option>
-      <option value="MS">MS</option>
-      <option value="MG">MG</option>
-      <option value="PA">PA</option>
-      <option value="PB">PB</option>
-      <option value="PR">PR</option>
-      <option value="PE">PE</option>
-      <option value="PI">PI</option>
-      <option value="RJ">RJ</option>
-      <option value="RN">RN</option>
-      <option value="RS">RS</option>
-      <option value="RO">RO</option>
-      <option value="RR">RR</option>
-      <option value="SC">SC</option>
-      <option value="SP">SP</option>
-      <option value="SE">SE</option>
-      <option value="TO">TO</option>
-      <option value="DF">DF</option>
-
-      </select>
-
-
-
-    </div>
-
-    <div class="btn-dados">
-    <button class="button1" type="submit" onclick="capturarcliente()">Próximo</button>
-  </div>
-
-
-    
-</div>
-
-
-
-
-
-<div class="hidden" id="secondpart">
-  <div class="logo">
- <img src="/img/Logo degrade_Prancheta 1.png" alt="">
-</div>
-
-
- <div class="topo">
- <h2>Gerador de<br>Contratos</h2>
-
- <div class="loading-image"  id="loadingimage2">
-
-
-
- </div>
-
- <div class="etapa-1">
-
- <h5>Etapa 2/5</h5>
- <h2>Suas informações</h2>
-</div>
- </div>
-
- 
-
-
- <div class="dados">
-
-   <label for="cpf">CPF/CNPJ <input type="text" onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" id="cpfmeu" maxlength="18" required></label>
-
-   <label for="nome">Nome/Razão Social <input type="text" id="agemeu"></label>
-   <br>
-
-   <label for="endereço">Endereço<input type="text"  id="adressmeu"></label>
-   <br>
-
-   <label for="numero"> Número<input type="tel" id="telefonmeu" maxlength="5"></label>
-   <br>
-
-   <label for="cep">CEP<input type="email" onKeyPress="MascaraGenerica(this, 'CEP');" maxlength="10" id="cepmeu"></label>
-   <br>
-
-   <label for="bairro">Bairro<input type="email" id="bairromeu"></label>
-   <br>
-
-   <label for="cidade">Cidade<input type="text" id="cidademeu"></label>
-
-
-   <br>
-
-   <select class="estados" name="Estado" id="estadoclientemeu">
-    <option value="AC">AC</option>
-     <option value="AL">AL</option>
-     <option value="AP">AP</option>
-     <option value="AM">AM</option>
-     <option value="BA">BA</option>
-     <option value="CE">CE</option>
-     <option value="ES">ES</option>
-     <option value="GO">GO</option>
-     <option value="MA">MA</option>
-     <option value="MT">MT</option>
-     <option value="MS">MS</option>
-     <option value="MG">MG</option>
-     <option value="PA">PA</option>
-     <option value="PB">PB</option>
-     <option value="PR">PR</option>
-     <option value="PE">PE</option>
-     <option value="PI">PI</option>
-     <option value="RJ">RJ</option>
-     <option value="RN">RN</option>
-     <option value="RS">RS</option>
-     <option value="RO">RO</option>
-     <option value="RR">RR</option>
-     <option value="SC">SC</option>
-     <option value="SP">SP</option>
-     <option value="SE">SE</option>
-     <option value="TO">TO</option>
-     <option value="DF">DF</option>
-
-     </select>
-
-
-   </div>
-
-   <div class="btn-dados">
-    <button class="button2" type="submit" onclick="capturarclientemeu()">Próximo</button>
-    
- </div>
-
-</div>
-
-<div class="hidden" id="thirdpart">
-  <div class="logo">
- <img src="/img/Logo degrade_Prancheta 1.png" alt="">
-</div>
-
-
- <div class="topo">
- <h2>Gerador de<br>Contratos</h2>
-
- <div class="loading-image"  id="loadingimage3">
-
-
-
- </div>
-
- <div class="etapa-1">
-
- <h5>Etapa 3/5</h5>
- <h2>Serviços</h2>
-</div>
- </div>
-
- 
-
-<p class="checkbox-text">Selecione quais serviços serão prestados ao seu cliente:</p>
- <div class="checkbox-input">
-  <input id="checkbox-1" class="check" name="checkbox-1" type="checkbox">
-  <label for="checkbox-1" class="checkbox-custom-label">E-mail Marketing</label>
-</div>
-<div class="checkbox-input">
-  <input id="checkbox-2" class="check2" name="checkbox-2" type="checkbox">
-  <label for="checkbox-2" class="checkbox-custom-label">Inbound Marketing</label>
-</div>
-<div class="checkbox-input">
-  <input id="checkbox-3" class="check3" name="checkbox-3" type="checkbox">
-  <label for="checkbox-3"class="checkbox-custom-label">Anúncios Patrocinados</label>    
-</div>
-<div class="checkbox-input">
-  <input id="checkbox-1" class="check4" name="checkbox-4" type="checkbox">
-  <label for="checkbox-1" class="checkbox-custom-label">Criação de counteúdo para Blog</label>
-</div>
-<div class="checkbox-input">
-  <input id="checkbox-2" class="check5" name="checkbox-5" type="checkbox">
-  <label for="checkbox-2" class="checkbox-custom-label">Gestão de Instagram</label>
-</div>
-<div class="checkbox-input">
-  <input id="checkbox-3" class="check6" name="checkbox-6" type="checkbox">
-  <label for="checkbox-3"class="checkbox-custom-label">Monitoramento</label>    
-</div>
-<div class="checkbox-input">
-  <input id="checkbox-1" class="check7" name="checkbox-7" type="checkbox">
-  <label for="checkbox-1" class="checkbox-custom-label">Relatórios de Desempenho</label>
-</div>
-<div class="checkbox-input">
-  <input id="checkbox-2" class="check8" name="checkbox-8" type="checkbox">
-  <label for="checkbox-2" class="checkbox-custom-label">Gestão de Facebook</label>
-</div>
-
-
-   <div class="btn-dados">
-    <button class="button3" type="submit" onclick="capturardados()">Próximo</button>
- </div>
-
-</div>
-
-<div class="hidden" id="fourthpart">
-  <div class="logo">
- <img src="/img/Logo degrade_Prancheta 1.png" alt="">
-</div>
-
-
- <div class="topo">
- <h2>Gerador de<br>Contratos</h2>
-
- <div class="loading-image"  id="loadingimage3">
-
-
-
- </div>
-
- <div class="etapa-1">
-
- <h5>Etapa 4/5</h5>
- <h2>Obrigações</h2>
-</div>
- </div>
-
- 
-
-<p class="checkbox-text">Selecione quais obrigações deseja emitir no Contrato:</p>
- <div class="checkbox-input">
-  <input id="checkbox-1" class="check9" name="checkbox-1" type="checkbox">
-  <label for="checkbox-1" class="checkbox-custom-label">Sigilo quanto às informações</label>
-</div>
-<div class="checkbox-input">
-  <input id="checkbox-2" class="check10" name="checkbox-2" type="checkbox">
-  <label for="checkbox-2" class="checkbox-custom-label">Enviar relatórios ao cliente mensalmente</label>
-</div>
-
-
-
-   <div class="btn-dados">
-    <button class="button4" type="submit" onclick="capturardados()">Próximo</button>
- </div>
-
-</div>
-
-<div class="hidden" id="fifthpart">
-  <div class="logo">
- <img class="logo5" src="/img/Logo degrade_Prancheta 1.png" alt="">
-</div>
-
-
- <div class="topo">
- <h2>Gerador de<br>Contratos</h2>
-
- <div class="loading-image"  id="loadingimage2">
-
-
-
- </div>
-
- <div class="etapa-1">
-
- <h5>Etapa 5/5</h5>
- <h2>Valores e Datas</h2>
-</div>
- </div>
-
- 
-
-<p class="checkbox-text">Valor mensal dos serviços prestados:</p>
-<label for="nome" id="valorcliente3">Valor dos serviços <input type="text" onKeyPress="MascaraGenerica(this, 'MOEDA');" id="valorcliente"></label>
-<br>
-
-<label for="nome" id="valorcliente3">Valor de investimento<input type="text" onKeyPress="MascaraGenerica(this, 'MOEDA');" id="valorcliente"></label>
-
-<br>
-<p class="checkbox-text">Selecione as datas de início e vencimento do contrato:</p>
-
-
-<div class="date-logo">
-<label for="nome" id="valorcliente2">Data de inicio <input type="text" onKeyPress="MascaraGenerica(this, 'DATA');" id="datepicker2"></label>
-<img id="date-logoimg" class="date-logoimg" src="/img/calendar.png" alt="">
-</div>
-<div class="date-logo">
-<label for="nome" id="valorcliente2">Vencimento <input type="text" onKeyPress="MascaraGenerica(this, 'DATA');" id="datepicker3"></label>
-<img id="date-logoimg" class="date-logoimg" src="/img/calendar.png" alt="">
-</div>
-
-
-
-
-
-
-
-
-
-   <div class="btn-dados">
-    <button class="button5" type="submit" onclick="capturarvalorcliente()">Próximo</button>
- </div>
-
- <div class="btn-dados">
-  <button class="button5" type="submit" onclick="imprimir();window.print,capturarvalorcliente()";>Imprimir</button>
-</div>
-
-</div>
-
-
-   
-
-<div class="contract-text" id="printable">
-
-
-
-
-  
-
-  <h3 id="h33">Contrato de Prestação de Serviços</h3>
-
-
-  <div class="javadados" id="javaid"><h5><b>CONTRATANTE:</b></h5> <div class="divnomecliente" id="nomeclientedigitado"></div> <div class="divcpfcliente" id="cpfclientedigitado"></div> <div class="dadosclientex" id="enderecoclientedigitado"></div> <div class="numeroclientedigitado" id="numenderecoclientedigitado"></div> <div class="dadosclientex" id="cepclientedigitado"></div> <div class="dadosclientex" id="bairroclientedigitado"></div> <div class="dadosclientex" id="cidadeclientedigitado"></div> <div class="dadosclientex" id="estadoclientedigitado"></div> </div>
-<BR>
-  <div class="javadados" id="javaid2"><h5><b>CONTRATADA:</b></h5> <div class="divnomemeu" id="nomemeudigitado"></div> <div class="divcpfmeu" id="cpfmeudigitado"></div> <div class="dadosclientex" id="enderecomeudigitado"></div> <div class="numeromeudigitado" id="numenderecomeudigitado"></div> <div class="dadosclientex" id="cepmeudigitado"></div> <div class="dadosclientex" id="bairromeudigitado"></div> <div class="dadosclientex" id="cidademeudigitado"></div> <div class="dadosclientex" id="estadomeudigitado"></div></div>
-  <br>
-
-  <p>As partes acima identificadas têm, entre si, justo e acertado o presente <b>Contrato de Prestação de Serviços de Consultoria Técnica</b>, que se regerá pelas cláusulas seguintes e pelas condições descritas no presente.</p>
-
-  <h3 id="h44">DO OBJETO DO CONTRATO</h3>
-
-  <p>Cláusula 1ª. É objeto do presente contrato, a prestação dos serviços por parte da <b>CONTRATADA</b> à <b>CONTRATANTE</b> sobre as seguintes matérias:</p>
-
-
-  <p>- Entrega de um Plano de Comunicação em até 7 dias após reunião de briefing inicial sobre o projeto.</p>
-
-  <div class="email-marketing">
-    <p> – Criação de conteúdo de e-mail marketing.</p>
-     <p> – Disparo de campanha de e-mail marketing semanalmente.</p>
-
-    </div>
-
-    <br>
-
-     <div class="inbound-marketing">
-      <p> – Definição de Personas.</p>
-       <p> – Criação de estratégia de captura de leads.</p>
-       <p> – Criação de estratégia de nutrição de leads.</p>
-       <p> - Criação de Landing Page e de material para captura de leads.</p>
-
-      </div>
-
-      <br>
-
-       <div class="anuncio-marketing">
-        <p> – Gestão de anúncios patrocinados para a CONTRATANTE nas redes sociais apontadas no contrato.</p>
-
+        
+        <div class="col-md-3 bg-white p-5" id="firstpart">
+            <div class="col text-center align-content-center justify-content-center ml-auto mr-auto mb-3">
+            <img class="w-50" src="assets/img/Logo preto_Prancheta 1.png" alt="">
         </div>
 
-        <br>
+        <h2 class="text-center mb-3">Gerador de Contratos</h2>
 
-
-         <div class="blog-marketing">
-          <p> – Criação de Blog post semanal de até 1000 palavras com entrega semanal para a <u>CONTRATADA.</u></p>
-           <p> – Publicação de blog post em domínio destinado pela <u>CONTRATANTE.</u></p>
-
-          </div>
-
-        <br>
-
-
-           <div class="instagram-marketing">
-            <p> – Gestão de Instagram com criação de posts semanais (elaboração de texto e design gráfico). A definição dos períodos onde serão utilizados os posts será acordada entre <u>CONTRATADA</u> e <u>CONTRATANTE</u> em até 7 dias antes da publicação do post.</p>
-
+        <div class="col">
+            <div class="progress align-content-center mr-auto ml-auto">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+              </div>
+              
             </div>
 
-        <br>
+            <div class="col mt-5">
+                <small class="ml-3">Etapa 1/5</small>
+                <div class="col d-flex">
+                <h4 class="info-cliente">Informações do Cliente</h4>
+                <img class="img ml-5" src="https://reportei.com/wp-content/plugins/gerador_de_contratos-master/includes/images/icone_clientes.svg" alt="">
+            </div>
+            </div>
 
+            <div class="col d-flex mt-5">
+                <div class="inputs">
+                    <label for="nome">CPF/CNPJ <input class="" placeholder="999.999.0001-58" type="text" onkeyup="keypressed(this)" onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" id="cpf"></label>
+                    <label for="nome">Nome/Razão Social <input autocomplete="false" placeholder="Digite o nome da sua empresa" class="" type="text" onkeyup="keypressed2(this),keypressed17(this),keypressed21(this)" id="name"></label>
+                    <label for="nome">Endereço <input class="" placeholder="Digite um endereço" type="text" onkeyup="keypressed3(this)" id="adress"></label>
+                    <label for="nome">Número <input class="" placeholder="Digite o númeroo do endereço" type="text" onkeyup="keypressed4(this)" id="number"></label>
+                    <label for="nome">CEP <input type="text" placeholder="Digite seu CEP" onkeyup="keypressed5(this)" onKeyPress="MascaraGenerica(this, 'CEP');" id="cep"></label>
+                    <label for="nome">Bairro <input type="text" placeholder="Digite seu bairro" onkeyup="keypressed6(this)" id="district"></label>
+                    <label for="nome">Cidade <input type="text" placeholder="Digite sua cidade" onkeyup="keypressed7(this),keypressed19(this),keypressed23(this)" id="city"></label>
+                    <select class="estados" name="Estado" id="state" onchange="keypressed8(this),keypressed20(this),keypressed24(this)">
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                        <option value="DF">DF</option>
+                  
+                        </select>
 
-             <div class="monitoramento-marketing">
-              <p> – Monitoramento das redes sociais da <u>CONTRATANTE</u> contratadas durante o horário comercial</p>
-               <p> – A <u>CONTRATADA</u> não se responsabiliza por mensagens e publicações de pessoas feitas em redes sociais e demais sites da Internet.</p>
+                        <a><button class="button1 float-right mt-5 btn-primary">CONTINUAR</button></a>
 
-              </div>
-
-        <br>
-
-
-               <div class="desempenho-marketing">
-                <p> – Será enviado relatório mensal de atividades contendo dados como: alcance, pessoas envolvidas na página, crescimento de seguidores, post de maior engajamento.</p>
 
                 </div>
-
-        <br>
-
-
-                 <div class="facebook-marketing">
-                  <p> – Gestão de Facebook com criação de posts semanais (elaboração de texto e design gráfico). A definição dos períodos onde serão utilizados os posts será acordada entre <u>CONTRATADA</u> e <u>CONTRATANTE</u> em até 7 dias antes da publicação do post.</p>
-                   <p> </p>
-
-
-
-  </div>
-
-  <div class="paragraph-display"><div class="paragraph" id="id-paragraph">O(a)</div> <div class="divnomecliente2" id="nomeclientedigitado2"></div> <div class="paragraph2" id="paragraph-id"> não se responsabiliza por problemas</div> <div class="paragraph3" id="paragraph6"> causados por terceiros durante o processo, tais como servidores de redes sociais.</div></div>
-
-  <p>Após o primeiro mês de projeto, os posts que estejam sujeitos a revisão por parte da <b>CONTRATANTE</b> contarão como a criação de novos posts, não sendo uma substituição dos posts já criados. Para revisão de posts e consequente substituição após o primeiro mês de contrato, é cobrada taxa adicional de 20% ao contrato.</p>
-
-
-  <div>
-
-  <h3 id="h55">DAS OBRIGAÇÕES DA CONTRATADA</h3>
-
-  <p>Cláusula 2ª. São deveres da <b>CONTRATADA:</b></p>
-  <br>
-  <ol type="a">
-    <li>Utilizar das técnicas disponíveis para a realização das atividades aliadas à consultoria, empregando seus melhores esforços na consecução da mesma.</li>
-    <br>
-    <li>Disponibilizar uma equipe tecnicamente capacitada para a realização de pesquisas e desenvolvimento do projeto no âmbito da matéria da consultoria devida e nomear um coordenador desta equipe, responsável pela administração das atividades.</li>
-    <br>
-    <li>Fornecer equipamentos, laboratórios, dependências e serviços que se fizerem necessários para a execução da consultoria, mediante remuneração.</li>
-    <br>
-    <li>Administrar o presente contrato.</p>
-      <br>
-    <li>Arquivar os documentos derivados do presente contrato e apresentá-los quando exigidos por quem de direito.</li>
-    <br>
-    <li>Recolher tributos e contribuições previdenciárias que incidirem sobre as atividades do projeto, com recursos deste.</li>
-    <br>
-    <li class="li-pa">Não divulgar em mídia ou internet, sem prévia autorização da <b>CONTRATANTE</b>, dados da <b>CONTRATANTE</b>, tais como dados de website e redes sociais.</li>
-    <br>
-    <li class="li-pa2">Fornecer relatórios, constando resultados técnicos e estatísticos sobre a consecução do projeto, devendo ser entregue mensalmente para a <b>CONTRATANTE</b> até o 5º dia útil do mês, a começar do segundo mês de projeto.</li>
-
-  </div>
-
-    <h3 id="h66">DAS OBRIGAÇÕES DA CONTRATANTE</h3>
-
-    <p>Cláusula 3ª. São direitos e deveres da <b>CONTRATANTE:</b></p>
-    <br>
-    <ol type="a">
-
-
-      <li>Realizar o pagamento conforme disposto na cláusula 4ª deste contrato.</li>
-      <br>
-      <li>Participar, através de pessoa especialmente credenciada, das reuniões referentes a este contrato.</li>
-      <br>
-      <li>Receber relatórios dos trabalhos, na forma e datas estabelecidas neste contrato.</li>
-      <br>
-      <li>Arcar com custos de reuniões presenciais na sede da <b>CONTRATANTE</b>, caso seja requisitada a participação da <b>CONTRATADA</b>. Tais reuniões deverão acontecer caso exista comum acordo entre as partes.</li>
-      <br>
-      <li>Designar uma responsável por estar em contato com a <b>CONTRATADA</b> para atendimento a dúvidas levantadas.</li>
-      <br>
-      <li>Fornecer logomarca em formato de imagem ou CorelDraw ou Photoshop, identidade visual disponível e conteúdo institucional que for necessário para as publicações na página (que não estejam no website).</li>
-    </ol>
-
-    <h3 id="h77">DO CUSTO E DA FORMA DE PAGAMENTO</h3>
-     
-    <ol type="a">
-    <li> Cláusula 4ª. O desenvolvimento completo do projeto por parte da <b>CONTRATADA</b> possui custo mensal de<b><div id="moeda1"> - </div></b> a ser pago pela <b>CONTRATANTE</b> à <b>CONTRATADA</b> no décimo dia útil de cada mês, iniciando-se o pagamento em , até completarem 3 mensalidades.</li>
-  </ol>
-
-  <h3 id="h88">DO PRAZO E CRONOGRAMA</h3>
-
-  <P>Cláusula 5ª. O prazo do presente contrato vigora a partir do dia . Após este período o contrato é renovado automaticamente mês a mês caso não haja notificação de uma das partes.</P>
-  <p>Após , para cancelamento do contrato, uma das partes deve notificar a outra com 30 dias de antecedência (mediante confirmação da outra parte). O cancelamento anterior a tal período só pode ser feito por concordância de ambas partes, caso contrário, implicará em multa prevista na Cláusula 7ª.</p>
-  <p>Para o desenvolvimento do objeto do presente contrato as partes obedecerão às seguintes fases:</p>
-
-  <ol type="a">
-    <li>Requisição e recebimento de dados de acesso à administração de redes sociais e Google Analytics (se possível) enviada pela CONTRATANTE (até 2 dias úteis após início de projeto);</li>
-    <br>
-    <li>Requisição e recebimento de material gráfico, institucional e promocional marca, enviada pela CONTRATANTE, tais como logomarcas, imagens compradas, imagens dos produtos, fotografias da empresa e textos do website(até 4 dias úteis após início de projeto);</li>
-    <br>
-    <li>Reunião de briefing (até 2 dias úteis após início de projeto)</li>
-    <br>
-    <li>Entrega de plano de comunicação (em até 7 dias após briefing)</li>
-    <br>
-    <li>Início dos posts em redes sociais: 1 dia útil após entrega do plano</li>
-  </ol>
-
-  <h3 id="h99">DA RESCISÃO E ALTERAÇÃO DE CLÁUSULAS</h3>
-
-  <p>Cláusula 6aª. A rescisão do presente instrumento não extinguirá os direitos e obrigações que as partes tenham entre si e para com terceiros.</p>
-  <p>Cláusula 7ª. Pagará multa de 30% do valor restante de contrato contado a partir da data de rescisão unilateral, corrigido no momento do pagamento, qualquer das partes que der causa à rescisão do presente contrato por não cumprir as obrigações aqui assumidas.</p>
-  <p>Cláusula 8ª. Este contrato poderá ser revisado, ampliado, reduzido e modificado a qualquer tempo, mediante a anuência das partes envolvidas.</p>
-
-  <h3 id="h10">DA MULTA POR ATRASO NO PAGAMENTO</h3>
-
-  <p>Cláusula 9ª. A <b>CONTRATANTE</b> pagará multa de 1% do valor corrigido de cada parcela referida na cláusula 4ª deste contrato em caso de atraso no pagamento de qualquer parcela sem prejuízo de juros de mora à base de 1% (um por cento) ao mês, calculados pro-rata tempore entre a data do vencimento e a data do efetivo pagamento, além da correção monetária.</p>
-
-  <p>A cada 12 mensalidades ou ano de contrato, o contrato é reajustado seguindo tabela do IGP-M referente aos 12 meses anteriores ao mês do reajuste.</p>
-
-  <h3 id="h11">DAS CONDIÇÕES GERAIS</h3>
-
-  <p>Cláusula 10ª. A <b>CONTRATADA</b> não possuirá horário fixo de entrada e saída na empresa, uma vez que não existirá vínculo empregatício.</p>
-
-  <p>Cláusula 11ª. É livre à <b>CONTRATADA</b> ter seus próprios clientes, fora do âmbito deste contrato.</p>
-
-  <h3 id="h12">DO FORO</h3>
-
-  <p>Cláusula 12ª. Para dirimir quaisquer controvérsias oriundas do contrato, as partes elegem o foro da comarca de -</p>
-
-  <p>Por estarem assim justos e contratadas, firmam o presente instrumento.</p>
-
-
-  
-
- <br>
- <br>
- <br>
- <br>
- <br>
-
- <div class="assinaturacliente">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</div>
- <div class="divnomecliente3" id="nomeclientedigitado3"></div>
-
- <br>
- <br>
- <br>
- 
-
- <div class="assinaturameu">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</div>
- <div class="divnomemeu2" id="nomemeudigitado2"></div>
-
- <br>
- <br>
- <br>
-
- 
- <div class="rodapedados">
- <div class="cidaderodape" id="cidadeclientedigitado2"></div>
- <div class="estadorodape" id="estadoclientedigitado2"></div>
- <div class="datarodape" id="datadigitado"></div>
-
-</div> 
-
-<br>
-
-<br>
-<br>
-<br>
-<br>
-
-
- 
-
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-<script>
-
-
-
-$(".button1").on('click',function(){
-    $('#secondpart').slideToggle(); // aparece o div
-    $('#firstpart').hide();
+            </div>
     
-  });
+        </div>
 
-  $(".button2").on('click',function(){
-    $('#thirdpart').slideToggle(); // aparece o div
-    $('#secondpart').hide();
-    $('#firstpart').hide();
+        <div class="col-md-3 bg-white p-5 hidden" id="secondpart">
+            <div class="col text-center align-content-center justify-content-center ml-auto mr-auto mb-3">
+            <img class="w-50" src="assets/img/Logo preto_Prancheta 1.png" alt="">
+        </div>
 
+        <h2 class="text-center mb-3">Gerador de Contratos</h2>
+
+        <div class="col">
+            <div class="progress align-content-center mr-auto ml-auto">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%"></div>
+              </div>
+              
+            </div>
+
+            <div class="col mt-5">
+                <small class="ml-3">Etapa 2/5</small>
+                <div class="col d-flex">
+                <h4 class="info-cliente">Suas Informações</h4>
+                <img class="img ml-5 im2" src="https://reportei.com/wp-content/plugins/gerador_de_contratos-master/includes/images/icone_freelancer.svg" alt="">
+            </div>
+            </div>
+
+            <div class="col d-flex mt-5">
+                <div class="inputs">
+                    <label for="nome">CPF/CNPJ <input class="" placeholder="999.999.0001-58" type="text" onkeyup="keypressed9(this)" onKeyPress="MascaraGenerica(this, 'CPFCNPJ');" id="my-cpf"></label>
+                    <label for="nome">Nome/Razão Social <input placeholder="Digite o nome da sua empresa" class="" type="text" onkeyup="keypressed10(this),keypressed22(this)" id="my-name"></label>
+                    <label for="nome">Endereço <input class="" placeholder="Digite um endereço" type="text" onkeyup="keypressed11(this)" id="my-adress"></label>
+                    <label for="nome">Número <input class="" placeholder="Digite o númeroo do endereço" type="text" onkeyup="keypressed12(this)" id="my-number"></label>
+                    <label for="nome">CEP <input type="text" placeholder="Digite seu CEP" onkeyup="keypressed13(this)" onKeyPress="MascaraGenerica(this, 'CEP');" id="my-cep"></label>
+                    <label for="nome">Bairro <input type="text" placeholder="Digite seu bairro" onkeyup="keypressed14(this)" id="my-district"></label>
+                    <label for="nome">Cidade <input type="text" placeholder="Digite sua cidade" onkeyup="keypressed15(this)" id="my-city"></label>
+                    <select class="estados" name="Estado" id="my-state" onchange="keypressed16(this)">
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                        <option value="DF">DF</option>
+                  
+                        </select>
+                        <BR>
+
+                        <a><button class="button6 mt-5 btn-secondary">VOLTAR</button></a>
+
+
+                        <a><button class="button2 float-right mt-5 btn-primary">CONTINUAR</button></a>
+
+
+                </div>
+            </div>
     
-    
-  });
+        </div>
 
-  $(".button3").on('click',function(){
-    $('#fourthpart').slideToggle(); // aparece o div
-    $('#thirdpart').hide(); 
-    $('#secondpart').hide();
-    $('#firstpart').hide();
+        <div class="col-md-3 bg-white p-5 hidden" id="thirdpart">
+            <div class="col text-center align-content-center justify-content-center ml-auto mr-auto mb-3">
+            <img class="w-50" src="assets/img/Logo preto_Prancheta 1.png" alt="">
+        </div>
 
-    
-    
-  });
+        <h2 class="text-center mb-3">Gerador de Contratos</h2>
 
-  $(".button4").on('click',function(){
-    $('#fifthpart').slideToggle(); // aparece o div
-    $('#fourthpart').hide();
-    $('#thirdpart').hide(); 
-    $('#secondpart').hide();
-    $('#firstpart').hide();
+        <div class="col">
+            <div class="progress align-content-center mr-auto ml-auto">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
+              </div>
+              
+            </div>
 
-    
-    
-  });
+            <div class="col mt-5">
+                <small class="ml-3">Etapa 3/5</small>
+                <div class="col d-flex">
+                <h4 class="info-cliente">Serviços</h4>
+                <img class="img ml-5 im" src="https://reportei.com/wp-content/plugins/gerador_de_contratos-master/includes/images/icone_servicos.svg" alt="">
+            </div>
+            </div>
 
-  $(".button5").on('click',function(){
-    $('#sixpart').slideToggle(); // aparece o div
-    $('#fifthpart').hide();
-    $('#fourthpart').hide();
-    $('#thirdpart').hide(); 
-    $('#secondpart').hide();
-    $('#firstpart').hide();
+            <div class="col mt-5">
+                <div class="inputs">
+                    <p>Selecione quais serviços serão prestados ao seu cliente:</p>
+                    <label class="label-checked"><input id="check-email" class="input-checked" type="checkbox">E-mail Marketing</label>
+                    <label class="label-checked"><input id="check-inbound" class="input-checked" type="checkbox">Inbound Marketing</label>
+                    <label class="label-checked"><input id="check-anuncios" class="input-checked" type="checkbox">Anúncios Patrocinados</label>
+                    <label class="label-checked"><input id="check-blog" class="input-checked" type="checkbox">Criação de conteúdo para Blog</label>
+                    <label class="label-checked"><input id="check-instagram" class="input-checked" type="checkbox">Gestão de Instagram</label>
+                    <label class="label-checked"><input id="check-monitoramento" class="input-checked" type="checkbox">Monitoramento</label>
+                    <label class="label-checked"><input id="check-relatorio" class="input-checked" type="checkbox">Relatórios de desempenho</label>
+                    <label class="label-checked"><input id="check-facebook" class="input-checked" type="checkbox">Gestão de Facebook</label>
 
-    
-    
-  });
+                        <a><button class="button7 mt-5 btn-secondary">VOLTAR</button></a>
+                        <a><button class="button3 float-right mt-5 btn-primary">CONTINUAR</button></a>
 
-  $( function() {
-    $( "#datepicker" ).datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+
+                </div>
+            </div>
+    
+        </div>
+
+        <div class="col-md-3 bg-white p-5 hidden" id="fourthpart">
+            <div class="col text-center align-content-center justify-content-center ml-auto mr-auto mb-3">
+            <img class="w-50" src="assets/img/Logo preto_Prancheta 1.png" alt="">
+        </div>
+
+        <h2 class="text-center mb-3">Gerador de Contratos</h2>
+
+        <div class="col">
+            <div class="progress align-content-center mr-auto ml-auto">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
+              </div>
+              
+            </div>
+
+            <div class="col mt-5">
+                <small class="ml-3">Etapa 4/5</small>
+                <div class="col d-flex">
+                <h4 class="info-cliente">Obrigações</h4>
+                <img class="img ml-5 im" src="https://reportei.com/wp-content/plugins/gerador_de_contratos-master/includes/images/icone_obrigacoes.svg" alt="">
+            </div>
+            </div>
+
+            <div class="col mt-5">
+                <div class="inputs">
+                    <p>Selecione quais obrigações deseja emitir no Contrato:</p>
+
+                    <label class="label-checked"><input id="fornece-check" class="input-checked" type="checkbox">Enviar relatórios ao cliente mensalmente</label>
+                    <label class="label-checked"><input id="sigilo-check" class="input-checked" type="checkbox">Sigilo quanto às informações</label>
+
+                        <a><button class="button8 mt-5 btn-secondary">VOLTAR</button></a>
+                        <a><button class="button4 float-right mt-5 btn-primary">CONTINUAR</button></a>
+
+
+                </div>
+            </div>
+    
+        </div>
+
+        <div class="col-md-3 bg-white p-5 hidden" id="fifthpart">
+            <div class="col text-center align-content-center justify-content-center ml-auto mr-auto mb-3">
+            <img class="w-50" src="assets/img/Logo preto_Prancheta 1.png" alt="">
+        </div>
+
+        <h2 class="text-center mb-3">Gerador de Contratos</h2>
+
+        <div class="col">
+            <div class="progress align-content-center mr-auto ml-auto">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+              </div>
+              
+            </div>
+
+            <div class="col mt-5">
+                <small class="ml-3">Etapa 5/5</small>
+                <div class="col d-flex">
+                <h4 class="info-cliente">Valores e Datas</h4>
+                <img class="img ml-5 im2" src="https://reportei.com/wp-content/plugins/gerador_de_contratos-master/includes/images/icone_valores.svg" alt="">
+            </div>
+            </div>
+
+            <div class="col mt-5">
+                <div class="inputs">
+                    <p>Valor mensal dos serviços prestados</p>
+                    <label for="nome">Valor dos serviços <input placeholder="R$ 0,00" class="" type="text" onkeyup="keypressed18(this)" onKeyPress="MascaraMoeda(this);" id="valuepress"></label>
+                    <p class="mt-4">Selecione as datas de início e vencimento do contrato:</p>
+
+                    <label class=""><input class="" onKeyPress="MascaraGenerica(this, 'DATA');" onkeyup="datainitial(this),datainitial2(this),datainitial3(this)" type="text" id="initialdate"><br>Início</label>
+                    <label class=""><input class="" onKeyPress="MascaraGenerica(this, 'DATA');" onkeyup="datevenc(this)" id="datavenc" type="text">Vencimento</label>
+
+                    <label class="label-checked mt-4" for=""><input id="digital-check2" class="input-checked" type="radio" name="assinatura">Este contrato será assinado manualmente</label>
+                    <label class="label-checked mt-2"><input id="digital-check" class="input-checked" type="radio" name="assinatura">Este contrato será assinado digitalmente</label>
+
+                        <a><button class="button9 mt-5 btn-secondary">VOLTAR</button></a>
+                        <a><button class="button5 float-right mt-5 btn-primary">CONTINUAR</button></a>
+
+
+                </div>
+            </div>
+    
+        </div>
+
+        <div class="col-md-3 bg-white p-5 hidden" id="sixthpart">
+            <div class="col text-center align-content-center justify-content-center ml-auto mr-auto mb-3">
+            <img class="w-50" src="assets/img/Logo preto_Prancheta 1.png" alt="">
+        </div>
+
+        <h2 class="text-center mb-3">Gerador de Contratos</h2>
+
+        <div class="col">
+            <div class="progress align-content-center mr-auto ml-auto">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+              </div>
+              
+            </div>
+
+            <div class="col mt-5">
+                <small class="ml-3">Quase lá!</small>
+                <div class="col d-flex">
+                <h4 class="info-cliente">Preparar e Imprimir</h4>
+                <img class="img ml-5 im2" src="https://reportei.com/wp-content/plugins/gerador_de_contratos-master/includes/images/icone_exportar.svg" alt="">
+            </div>
+            </div>
+
+            <div class="col mt-5">
+                <div class="inputs">
+                    <p class="mt-4">Verique se você preencheu todos os dados corretamente.
+                        Clique em "Finalizar" para imprimir o documento do seu contrato.</p>
+
+                   
+
+                        <a><button class="button10 mt-5 btn-secondary" onclick="recall()">VOLTAR</button></a>
+                        <a><button class="button12 float-right mt-5 btn-primary" onclick="imprimir()" id="cmd">FINALIZAR</button></a>
+
+
+                </div>
+            </div>
+    
+        </div>
+
+       
+
         
-    });
-  } );
-
-  $( function() {
-    $( "#datepicker2" ).datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-    });
-  } );
-
-  $( function() {
-    $( "#datepicker3" ).datepicker({
-        dateFormat: 'dd/mm/yy',
-        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-    });
-  } );
-
-  
-  $(document).ready(function(){
-                $(".button5").click(function(){
-                    $("#printable").printThis({
-
-                    });
-
-                  });
-
-                });
 
 
-
-  $(document).ready(function(){
-     $('.check').on('click',function() {
-        $(".email-marketing").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check2').on('click',function() {
-        $(".inbound-marketing").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check3').on('click',function() {
-        $(".anuncio-marketing").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check4').on('click',function() {
-        $(".blog-marketing").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check5').on('click',function() {
-        $(".instagram-marketing").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check6').on('click',function() {
-        $(".monitoramento-marketing").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check7').on('click',function() {
-        $(".desempenho-marketing").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check8').on('click',function() {
-        $(".facebook-marketing").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check9').on('click',function() {
-        $(".li-pa").toggle(this.checked);
-    });
-});
-
-$(document).ready(function(){
-     $('.check10').on('click',function() {
-        $(".li-pa2").toggle(this.checked);
-    });
-});
-
-function imprimir() {
-  
-
-  var element = document.getElementById('printable');
-  element.classList.remove("contract-text");
-  element.classList.add("printable-class")
-
-  var element = document.getElementById('printable'); 
-  element.classList.add ("imprimirclass");
-
-  var element2 = document.getElementById('h33');
-  element2.classList.add ("h3-class");
-
-  var element3 = document.getElementById('h44');
-  element3.classList.add ("h4-class");
-
-  var element4 = document.getElementById('h55');
-  element4.classList.add ("h5-class");
-
-  var element4 = document.getElementById('h66');
-  element4.classList.add ("h6-class");
-
-  var element5 = document.getElementById('h77');
-  element5.classList.add ("h7-class");
-
-  var element6 = document.getElementById('h88');
-  element6.classList.add ("h8-class");
-
-  var element7 = document.getElementById('h99');
-  element7.classList.add ("h9-class");
-
-  var element8 = document.getElementById('h10');
-  element8.classList.add ("h10-class");
-
-  var element9 = document.getElementById('h11');
-  element9.classList.add ("h11-class");
-
-  var element10 = document.getElementById('body-id');
-  element10.classList.add ("body-class");
-
-  var element11 = document.getElementById('nomeclientedigitado');
-  element11.classList.remove("divnomecliente");
-  element11.classList.add ("nome-class");
-
-  var element12 = document.getElementById('cpfclientedigitado');
-  element12.classList.remove("divcpfcliente");
-  element12.classList.add ("cpf-class");
-
-  var element13 = document.getElementById('numenderecoclientedigitado');
-  element13.classList.remove("numeroclientedigitado");
-  element13.classList.add ("numero-class");
-
-  var element14 = document.getElementById('javaid');
-  element14.classList.remove("javadados");
-  element14.classList.add ("teste-class");
-
-  var element15 = document.getElementById('nomemeudigitado');
-  element15.classList.remove("divnomemeu");
-  element15.classList.add ("nome2-class");
-
-  var element16 = document.getElementById('cpfmeudigitado');
-  element16.classList.remove("divcpfmeu");
-  element16.classList.add ("cpf2-class");
-
-  var element17 = document.getElementById('numenderecomeudigitado');
-  element17.classList.remove("numeromeudigitado");
-  element17.classList.add ("numero2-class");
-
-  var element18 = document.getElementById('javaid2');
-  element18.classList.remove("javadados");
-  element18.classList.add ("teste-class2");
-
-  var element19 = document.getElementById('nomeclientedigitado2');
-  element19.classList.remove("divnomecliente2");
-  element19.classList.add ("divnome-class");
-
-  var element20 = document.getElementById('paragraph-id');
-  element20.classList.remove("paragraph2");
-  element20.classList.add ("paragraph5");
-
-  var element21 = document.getElementById('id-paragraph');
-  element21.classList.remove("paragraph");
-  element21.classList.add ("paragraph55");
-
-  var element22 = document.getElementById('paragraph6');
-  element22.classList.remove("paragraph3");
-  element22.classList.add ("paragraph66");
 
 
 
 
   
+        <div class="col-md-5 offset-md-2 mt-5 bg-white rounded contrato printable" id="printable">
+            <h3 class="text-center text-black display-5 mb-5 " >Contrato de Prestação de Serviços</h3>
+            <h6 class="mt-4">CONTRATANTE:  <span id="clientname"></span> <span id="clientcpf"></span> <span id="clientadress"></span> <span id="clientnumber"></span> <span id="clientcep"></span> <span id="clientdistrict"></span> <span id="clientcity"></span> <span id="clientstate"></span>          </h6>
+            <h6 class="mt-4 mb-5">CONTRATADA:   <span id="myname"></span> <span id="mycpf"></span> <span id="myadress"></span> <span id="mynumber"></span> <span id="mycep"></span> <span id="mydistrict"></span> <span id="mycity"></span> <span id="mystate"></span>           </h6>
+
+            <p>As partes acima identificadas têm, entre si, justo e acertado o presente Contrato de Prestação de Serviços de Consultoria Técnica,
+                 que se regerá pelas cláusulas seguintes e pelas condições descritas no presente.</p>
+
+                 <h3 class="text-center text-black display-5 mt-5 mb-5 " >DO OBJETO DO CONTRATO</h3>
+
+                 <p>Cláusula 1ª. É objeto do presente contrato, a prestação dos serviços por parte da CONTRATADA à CONTRATANTE sobre as seguintes matérias:</p>
+
+                 <p>- Entrega de um Plano de Comunicação em até 7 dias após reunião de briefing inicial sobre o projeto.</p>
+
+                 <p id="email-display">– Criação de conteúdo de e-mail marketing<br>– Disparo de campanha de e-mail marketing semanalmente.</p>
+
+                 <p id="inbound-display">– Definição de Personas.<br>– Criação de estratégia de captura de leads.<br>– Criação de estratégia de nutrição de leads.<br>– Criação de Landing Page e de material para captura de leads.</p>
+
+                 <p id="anuncios-display">– Gestão de anúncios patrocinados para a CONTRATANTE nas redes sociais apontadas no contrato.</p>
+
+                 <p id="blog-display">– Criação de Blog post semanal de até 1000 palavras com entrega semanal para a CONTRATADA.<br>– Publicação de blog post em domínio destinado pela CONTRATANTE.</p>
+
+                 <p id="instagram-display">– Gestão de Instagram com criação de posts semanais (elaboração de texto e design gráfico). A definição dos períodos onde serão utilizados os posts será acordada entre CONTRATADA e CONTRATANTE em até 7 dias antes da publicação do post.</p>
+
+                 <p id="monitoramento-display">– Monitoramento das redes sociais da CONTRATANTE contratadas durante o horário comercial<br>– A CONTRATADA não se responsabiliza por mensagens e publicações de pessoas feitas em redes sociais e demais sites da Internet.</p>
+
+                 <p id="relatorio-display">– Será enviado relatório mensal de atividades contendo dados como: alcance, pessoas envolvidas na página, crescimento de seguidores, post de maior engajamento.</p>
+
+                 <p id="facebook-display">– Gestão de Facebook com criação de posts semanais (elaboração de texto e design gráfico). A definição dos períodos onde serão utilizados os posts será acordada entre CONTRATADA e CONTRATANTE em até 7 dias antes da publicação do post.</p>
+
+                 <p>O(a) <span id="clientname-contrato"></span> não se responsabiliza por eventuais problemas causados por terceiros durante o processo, tais como servidores de redes sociais.</p>
+                 
+                 <p>Após o primeiro mês de projeto, os posts que estejam sujeitos a revisão por parte da CONTRATANTE contarão como a criação de novos posts, não sendo uma substituição dos posts já criados.
+                 Para revisão de posts e consequente substituição após o primeiro mês de contrato, é cobrada taxa adicional de 20% ao contrato.</p>
+
+                 <h3 class="text-center text-black display-5 mb-5 mt-5 " >DAS OBRIGAÇÕES DA CONTRATADA</h3>
+
+                 <p>Cláusula 2ª. São deveres da CONTRATADA:</p>
+
+                 <ol type="a">
+                     <li>Utilizar das técnicas disponíveis para a realização das atividades aliadas à consultoria, empregando seus melhores esforços na consecução da mesma.</li>
+                     <br>
+                     <li>Disponibilizar uma equipe tecnicamente capacitada para a realização de pesquisas e desenvolvimento do projeto no âmbito da matéria da consultoria devida e nomear um coordenador desta equipe, responsável pela administração das atividades.</li>
+                     <br>
+                     <li>Fornecer equipamentos, laboratórios, dependências e serviços que se fizerem necessários para a execução da consultoria, mediante remuneração.</li>
+                     <br>
+                     <li>Administrar o presente contrato.</li>
+                     <br>
+                     <li>Arquivar os documentos derivados do presente contrato e apresentá-los quando exigidos por quem de direito.</li>
+                     <br>
+                     <li>Recolher tributos e contribuições previdenciárias que incidirem sobre as atividades do projeto, com recursos deste.</li>
+                     <br>
+                     <li id="fornece-relatorios">Fornecer relatórios, constando resultados técnicos e estatísticos sobre a consecução do projeto, devendo ser entregue mensalmente para a CONTRATANTE até o 5º dia útil do mês, a começar do segundo mês de projeto.</li>
+                     <br>
+                     <li id="nao-divulgar">Não divulgar em mídia ou internet, sem prévia autorização da CONTRATANTE, dados da CONTRATANTE, tais como dados de website e redes sociais.</li>
+                 </ol>
+
+                 <h3 class="text-center text-black display-5 mb-5 mt-5 " >DAS OBRIGAÇÕES DA CONTRATANTE</h3>
+
+                 <p>Cláusula 3ª. São direitos e deveres da CONTRATANTE:</p>
+
+                 <ol type="a">
+                     <li>Realizar o pagamento conforme disposto na cláusula 4ª deste contrato.</li>
+                     <br>
+                     <li>Participar, através de pessoa especialmente credenciada, das reuniões referentes a este contrato.</li>
+                     <br>
+                     <li>Receber relatórios dos trabalhos, na forma e datas estabelecidas neste contrato.</li>
+                     <br>
+                     <li>Arcar com custos de reuniões presenciais na sede da CONTRATANTE, caso seja requisitada a participação da CONTRATADA. Tais reuniões deverão acontecer caso exista comum acordo entre as partes.</li>
+                     <br>
+                     <li>Designar uma responsável por estar em contato com a CONTRATADA para atendimento a dúvidas levantadas.</li>
+                     <br>
+                     <li>Fornecer logomarca em formato de imagem ou CorelDraw ou Photoshop, identidade visual disponível e conteúdo institucional que for necessário para as publicações na página (que não estejam no website).</li>
+                 </ol>
+
+                 <h3 class="text-center text-black display-5 mb-5 mt-5 " >DO CUSTO E DA FORMA DE PAGAMENTO</h3>
+
+                 <ol type="a">
+                     <li>Cláusula 4ª. O desenvolvimento completo do projeto por parte da CONTRATADA possui custo mensal de <span id="value"></span> a ser pago pela
+                          CONTRATANTE à CONTRATADA no décimo dia útil de cada mês, iniciando-se o pagamento em <span id="dateinicio"></span> , até completarem 3 mensalidades.</li>
+                 </ol>
+
+                 <h3 class="text-center text-black display-5 mb-5 mt-5 " >DO PRAZO E CRONOGRAMA</h3>
+
+                 <p>Cláusula 5ª. O prazo do presente contrato vigora a partir do dia <span id="dateinicio2"></span> a <span id="datefim"></span>.
+                      Após este período o contrato é renovado automaticamente mês a mês caso não haja notificação de uma das partes.</p>
+
+                 <p>Após <span id="dateinicio3"></span>, para cancelamento do contrato, uma das partes deve notificar a outra com 30 dias de antecedência (mediante confirmação da outra parte).
+                  O cancelamento anterior a tal período só pode ser feito por concordância de ambas partes, caso contrário, implicará em multa prevista na Cláusula 7ª.</p>
+
+                  <p>Para o desenvolvimento do objeto do presente contrato as partes obedecerão às seguintes fases:</p>
+
+                  <ol type="a">
+                      <li>Requisição e recebimento de dados de acesso à administração de redes sociais e Google Analytics (se possível) enviada pela CONTRATANTE (até 2 dias úteis após início de projeto);</li>
+                      <br>
+                      <li>Requisição e recebimento de material gráfico, institucional e promocional marca, enviada pela CONTRATANTE, tais como logomarcas, imagens compradas, imagens dos produtos, fotografias da empresa e textos do website(até 4 dias úteis após início de projeto);</li>
+                      <br>
+                      <li>Reunião de briefing (até 2 dias úteis após início de projeto)</li>
+                      <br>
+                      <li>Entrega de plano de comunicação (em até 7 dias após briefing)</li>
+                      <br>
+                      <li>Início dos posts em redes sociais: 1 dia útil após entrega do plano</li>
+                  </ol>
+
+                  <h3 class="text-center text-black display-5 mb-5 mt-5" >DA RESCISÃO E ALTERAÇÃO DE CLÁUSULAS</h3>
+
+                  <p>Cláusula 6aª. A rescisão do presente instrumento não extinguirá os direitos e obrigações que as partes tenham entre si e para com terceiros.</p>
+
+                  <p>Cláusula 7ª. Pagará multa de 30% do valor restante de contrato contado a partir da data de rescisão unilateral, corrigido no momento do pagamento, qualquer das partes que der causa à rescisão do presente contrato por não cumprir as obrigações aqui assumidas.</p>
+
+                  <p>Cláusula 8ª. Este contrato poderá ser revisado, ampliado, reduzido e modificado a qualquer tempo, mediante a anuência das partes envolvidas.</p>
+
+                  <h3 class="text-center text-black display-5 mb-5 mt-5 " >DA MULTA POR ATRASO NO PAGAMENTO</h3>
+
+                  <p>Cláusula 9ª. A CONTRATANTE pagará multa de 1% do valor corrigido de cada parcela referida na cláusula 4ª deste contrato em caso de atraso no pagamento de qualquer parcela sem prejuízo de juros de mora à base de 1% (um por cento) ao mês, calculados pro-rata tempore entre a data do vencimento e a data do efetivo pagamento, além da correção monetária.</p>
+
+                  <p>A cada 12 mensalidades ou ano de contrato, o contrato é reajustado seguindo tabela do IGP-M referente aos 12 meses anteriores ao mês do reajuste.</p>
+
+                  <h3 class="text-center text-black display-5 " >DAS CONDIÇÕES GERAIS</h3>
+
+                  <p>Cláusula 10ª. A CONTRATADA não possuirá horário fixo de entrada e saída na empresa, uma vez que não existirá vínculo empregatício.</p>
+
+                  <p>Cláusula 11ª. É livre à CONTRATADA ter seus próprios clientes, fora do âmbito deste contrato.</p>
+
+                  <h3 class="text-center text-black display-5 mb-5 mt-5 " >DO FORO</h3>
+
+                  <p>Cláusula 12ª. Para dirimir quaisquer controvérsias oriundas do contrato, as partes elegem o foro da comarca de <span id="city2"></span> - <span id="state2"></span> </p>
+
+                  <p>Por estarem assim justos e contratadas, firmam o presente instrumento.</p>
+
+
+                  <div id="div-digital" class="mt-5 mb-5">
+                      <p>____________________________________________________________<br><span id="nameclient"></span></p>
+                      
+                  </div>
+
+                  <div id="div-digital2" class="mt-5 mb-5">
+                      <p>____________________________________________________________<br><span id="namemy"></span></p>
+                  </div>
+
+                  <div class="mt-5">
+                      <p><span id="city3"></span> - <span id="state3"></span>, <span id="datahoje"></span> </p>
+                  </div>
+
+                  
 
 
 
 
- 
-
-
-  
-
-  
-}
-
-
-  var capturando = "";
-function capturarcliente () {
-
-    capturando = document.getElementById('age').value;
-    document.getElementById('nomeclientedigitado').innerHTML = capturando;
-
-    capturando = ", CNPJ: " + document.getElementById('cpf').value + ", ";
-    document.getElementById('cpfclientedigitado').innerHTML = capturando;
-
-    capturando = "com sede em " + document.getElementById('adress').value + ", "; 
-    document.getElementById('enderecoclientedigitado').innerHTML = capturando;
-
-    capturando = document.getElementById('telefon').value;
-    document.getElementById('numenderecoclientedigitado').innerHTML = capturando;
-
-    capturando = ", CEP: " + document.getElementById('cep').value;
-    document.getElementById('cepclientedigitado').innerHTML = capturando;
-
-    capturando = ",  " + document.getElementById('bairro').value;
-    document.getElementById('bairroclientedigitado').innerHTML = capturando;
-
-    capturando = ", " + document.getElementById('cidade').value;
-    document.getElementById('cidadeclientedigitado').innerHTML = capturando;
-
-    capturando = "⠀-⠀" + document.getElementById('estadocliente').value;
-    document.getElementById('estadoclientedigitado').innerHTML = capturando;
-
-
-    capturando = document.getElementById('age').value;
-    document.getElementById('nomeclientedigitado2').innerHTML = capturando;
-
-    capturando = document.getElementById('age').value;
-    document.getElementById('nomeclientedigitado3').innerHTML = capturando;
-
-    capturando = document.getElementById('cidade').value;
-    document.getElementById('cidadeclientedigitado2').innerHTML = capturando;
-
-    capturando = " - " + document.getElementById('estadocliente').value + "⠀-⠀";
-    document.getElementById('estadoclientedigitado2').innerHTML = capturando;
-
-}
-
-function capturarclientemeu () {
-
-    capturando = document.getElementById('agemeu').value;
-    document.getElementById('nomemeudigitado').innerHTML = capturando;
-
-    capturando = ", CNPJ: " + document.getElementById('cpfmeu').value; + ", ";
-    document.getElementById('cpfmeudigitado').innerHTML = capturando;
-
-    capturando = "com sede em " + document.getElementById('adressmeu').value + ", "; 
-    document.getElementById('enderecomeudigitado').innerHTML = capturando;
-
-    capturando = document.getElementById('telefonmeu').value;
-    document.getElementById('numenderecomeudigitado').innerHTML = capturando;
-
-    capturando = ", CEP: " + document.getElementById('cepmeu').value;
-    document.getElementById('cepmeudigitado').innerHTML = capturando;
-
-    capturando = ",  " + document.getElementById('bairromeu').value;
-    document.getElementById('bairromeudigitado').innerHTML = capturando;
-
-    capturando = ", " + document.getElementById('cidademeu').value;
-    document.getElementById('cidademeudigitado').innerHTML = capturando;
-
-    capturando = "⠀-⠀" + document.getElementById('estadoclientemeu').value;
-    document.getElementById('estadomeudigitado').innerHTML = capturando;
-
-    capturando = document.getElementById('agemeu').value;
-    document.getElementById('nomemeudigitado2').innerHTML = capturando;
-}
-
-function capturarvalorcliente () {
-
-  capturando = "R$ " + document.getElementById('valorcliente').value;
-  document.getElementById('moeda1').innerHTML = capturando;
-}
-
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-
-today = dd + '/' + mm + '/' + yyyy;
-document.getElementById('datadigitado').innerHTML = (today);
 
 
 
 
 
-function MascaraInteiro(num) {
-    var er = /[^0-9]/;
-    er.lastIndex = 0;
-    var campo = num;
-    if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
-        var texto = $(campo).val();
-        $(campo).val(texto.substring(0, texto.length - 1));
-        return false;
-    } else {
-        return true;
-    }
-}
-function MascaraFloat(num) {
-    var er = /[^0-9.,]/;
-    er.lastIndex = 0;
-    var campo = num;
-    if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
-        var texto = $(campo).val();
-        $(campo).val(texto.substring(0, texto.length - 1));
-        return false;
-    } else {
-        return true;
-    }
-}
- //formata de forma generica os campos
-function formataCampo(campo, Mascara) {
-    var er = /[^0-9/ (),.-]/;
-    er.lastIndex = 0;
-
-    if (er.test(campo.value)) {///verifica se é string, caso seja então apaga
-        var texto = $(campo).val();
-        $(campo).val(texto.substring(0, texto.length - 1));
-    }
-    var boleanoMascara;
-    var exp = /\-|\.|\/|\(|\)| /g
-    var campoSoNumeros = campo.value.toString().replace(exp, "");
-    var posicaoCampo = 0;
-    var NovoValorCampo = "";
-    var TamanhoMascara = campoSoNumeros.length;
-    for (var i = 0; i <= TamanhoMascara; i++) {
-        boleanoMascara = ((Mascara.charAt(i) == "-") || (Mascara.charAt(i) == ".")
-                || (Mascara.charAt(i) == "/"))
-        boleanoMascara = boleanoMascara || ((Mascara.charAt(i) == "(")
-                || (Mascara.charAt(i) == ")") || (Mascara.charAt(i) == " "))
-        if (boleanoMascara) {
-            NovoValorCampo += Mascara.charAt(i);
-            TamanhoMascara++;
-        } else {
-            NovoValorCampo += campoSoNumeros.charAt(posicaoCampo);
-            posicaoCampo++;
-        }
-    }
-    campo.value = NovoValorCampo;
-    ////LIMITAR TAMANHO DE CARACTERES NO CAMPO DE ACORDO COM A MASCARA//
-    if (campo.value.length > Mascara.length) {
-        var texto = $(campo).val();
-        $(campo).val(texto.substring(0, texto.length - 1));
-    }
-    //////////////
-    return true;
-}
-
-function MascaraMoeda(i) {
-    var v = i.value.replace(/\D/g, '');
-    v = (v / 100).toFixed(2) + '';
-    v = v.replace(".", ",");
-    v = v.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-    v = v.replace(/(\d)(\d{3}),/g, "$1.$2,");
-    i.value = v;
-}
-
-function MascaraGenerica(seletor, tipoMascara) {
-    setTimeout(function () {
-        if (tipoMascara == 'CPFCNPJ') {
-            if (seletor.value.length <= 14) { //cpf
-                formataCampo(seletor, '000.000.000-00');
-            } else { //cnpj
-                formataCampo(seletor, '00.000.000/0000-00');
-            }
-        } else if (tipoMascara == 'DATA') {
-            formataCampo(seletor, '00/00/0000');
-        } else if (tipoMascara == 'CEP') {
-            formataCampo(seletor, '00.000-000');
-        } else if (tipoMascara == 'TELEFONE') {
-            formataCampo(seletor, '(00) 000000000');
-        } else if (tipoMascara == 'INTEIRO') {
-            MascaraInteiro(seletor);
-        } else if (tipoMascara == 'FLOAT') {
-            MascaraFloat(seletor);
-        } else if (tipoMascara == 'CPF') {
-            formataCampo(seletor, '000.000.000-00');
-        } else if (tipoMascara == 'CNPJ') {
-            formataCampo(seletor, '00.000.000/0000-00');
-        } else if (tipoMascara == 'MOEDA') {
-            MascaraMoeda(seletor);
-        }
-    }, 200);
-}
 
 
-    </script>
 
+        </div>
+    </div>
+
+     
+      
 
 
     
+
+
+
+
+
+
+
+    <script src="js/index.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
 </body>
 </html>

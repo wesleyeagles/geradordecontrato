@@ -1,0 +1,319 @@
+
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('fonts/Gilroy-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GilroyBold';
+    src: url('/fonts/Gilroy-ExtraBold.otf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.p-5 {
+
+    padding: 31px!important;
+    margin-left: 10px!important;
+}
+
+
+
+
+
+body {
+
+    background-color: #F1F4F9;
+    font-family: Gilroy;
+    overflow-y: none;
+    overflow-x: hidden;
+
+}
+
+
+#dados, #firstpart, #secondpart, #thirdpart, #fourthpart, #fifthpart, #sixthpart {
+
+    height: 935px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%)!important;
+
+}
+
+
+
+.printable {
+
+    box-shadow: 0 0 8px rgb(0 0 0 / 7%), 0 0 0 1px rgb(0 0 0 / 6%)!important;
+    padding: 1.5cm 2cm 2cm!important;
+    overflow-y: auto;
+    height: 820px;
+}
+
+#printable::-webkit-scrollbar {
+
+    width: 12px;
+}
+
+.printable2 {
+
+    box-shadow: none;
+    padding: 1.5cm 2cm 2cm!important;
+    height: 2000px;
+}
+
+#printable h3 {
+
+    font-family: GilroyBold;
+    font-size: 2.0rem;
+    font-weight: bold;
+    color: #075aa8;
+}
+
+.img {
+
+    width: 50px;
+}
+
+.im {
+
+    position: relative;
+    left: 140px;
+}
+
+.im2 {
+
+    position: relative;
+    left: 30px;
+}
+
+h2 {
+
+    font-size: 28px!important;
+    font-family: GilroyBold!important;
+    color: #075aa8!important;
+}
+
+.btn-primary {
+
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 25px;
+    font-size: 18px;
+    font-family: GilroyBold;
+}
+
+.btn-secondary {
+
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 25px;
+    font-size: 18px;
+    font-family: GilroyBold;
+}
+
+p {
+
+    font-size: 22px!important;
+}
+
+li {
+
+    font-size: 20px!important;
+}
+
+h6 {
+
+    font-size: 23px;
+    font-weight: 400;
+}
+
+
+input {
+
+    outline: none;
+    border: none;
+    border-bottom: solid gray 1px;
+    width: 370px;
+    color: #075aa8;
+
+}
+
+label {
+
+    color: #075aa8;
+    font-size: 17px;
+    font-weight: bold;
+
+}
+
+label:hover {
+
+    color:#3685cf;
+}
+
+span {
+
+    color: rgb(116, 116, 116);
+    font-size: 20px;
+}
+
+.label-checked {
+
+    width: 92%;
+}
+
+.input-checked {
+
+    width: 7%;
+}
+
+#email-display, #inbound-display, #anuncios-display, #blog-display, #instagram-display, #monitoramento-display, #relatorio-display, #facebook-display {
+
+    display: none;
+    padding: 8px;
+    background-color: aquamarine;
+    font-size: 15px;
+    font-weight: 400;
+    transition: 2s;
+}
+
+
+
+#fornece-relatorios, #nao-divulgar {
+
+    display: none;
+}
+
+.hidden {
+
+    display: none;
+}
+
+
+@media only screen and (max-width: 1440px) {
+
+    input {
+
+        width: 280px;
+
+    }
+
+    #dados, #firstpart, #secondpart, #thirdpart, #fourthpart, #fifthpart, #sixthpart {
+
+        height: 1035px;
+
+    }
+
+    .im {
+
+        position: relative;
+        left: 50px;
+    }
+    
+    .im2 {
+    
+        position: relative;
+        left: 30px;
+    }
+
+    
+
+    
+}
+
+@media only screen and (max-width: 1024px) {
+
+    input {
+
+        width: 200px;
+
+    }
+
+    #dados, #firstpart, #secondpart, #thirdpart, #fourthpart, #fifthpart, #sixthpart {
+
+        height: 1235px;
+        
+
+    }
+
+    h4 {
+
+        font-size: 18px;
+    }
+
+    h2 {
+
+        font-size: 18px!important;
+    }
+
+    img {
+
+        width:40px!important;
+    }
+
+    label {
+
+        font-size: 13px;
+    }
+
+    button {
+
+        font-size: 13px!important;
+    }
+
+    #firstpart {
+
+        width: 1000px!important;
+    }
+
+    p {
+
+        font-size: 15px!important;
+    }
+
+    h6 {
+
+        font-size: 18px!important;
+    }
+
+    h3 {
+
+        font-size: 20px!important;
+    }
+
+    li {
+
+        font-size: 15px!important;
+    }
+
+    span {
+
+        font-size: 15px!important;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+
+    input {
+
+        width: 370px;
+
+    }
+
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    input {
+
+        width: 680px;
+
+    }
+}
+
+
+
+
