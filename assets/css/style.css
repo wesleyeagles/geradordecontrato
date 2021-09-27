@@ -1,15 +1,15 @@
 
 
 @font-face {
-    font-family: 'Gilroy';
-    src: url('fonts/Gilroy-Regular.ttf') format('truetype');
+    font-family: 'GilroyRegular';
+    src: url('fonts/Gilroy-Regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'GilroyBold';
-    src: url('/fonts/Gilroy-ExtraBold.otf') format('truetype');
+    src: url('/fonts/Gilroy-ExtraBold.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
 }
@@ -39,6 +39,12 @@ body {
     height: 935px;
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 1px 5px 0 rgb(0 0 0 / 12%), 0 3px 1px -2px rgb(0 0 0 / 20%)!important;
 
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 
